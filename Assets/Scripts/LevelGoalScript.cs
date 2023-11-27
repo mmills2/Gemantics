@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelGoalScript : MonoBehaviour
 {
-    public TextMeshPro winText;
+    //public TextMeshPro winText;
     public GameObject ball;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class LevelGoalScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        winText.text = "YOU WIN";
+        //winText.text = "YOU WIN";
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 }

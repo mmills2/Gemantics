@@ -8,13 +8,13 @@ using static UnityEditor.Progress;
 
 public class RightController : MonoBehaviour
 {
-    public InputActionProperty activateInput;
+    public InputActionProperty primaryButton;
 
     public GameObject prefab;
 
     private void OnEnable()
     {
-        activateInput.action.started += SpawnAPlatform;
+        primaryButton.action.started += SpawnAPlatform;
     }
     private void SpawnAPlatform(InputAction.CallbackContext context)
     {
