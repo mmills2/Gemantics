@@ -12,7 +12,7 @@ public class CurrentLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level = 1;
+        setLevel(level);
     }
     
     public void setLevel(int setLevel)
@@ -29,11 +29,11 @@ public class CurrentLevel : MonoBehaviour
         }
         else if (level == 2)
         {
-            return new Vector3(1, (float)1.351, (float)0.521);
+            return new Vector3(0, (float)1.351, (float)-4.589);
         }
         else if (level == 3)
         {
-            return new Vector3(2, (float)1.351, (float)0.521);
+            return new Vector3(0, (float)1.351, (float)0.521);
         }
         else
         {
@@ -49,7 +49,7 @@ public class CurrentLevel : MonoBehaviour
         }
         else if (level == 2)
         {
-            return new Vector3(0, player.GetComponent<XROrigin>().Camera.transform.position.y, 25);
+            return new Vector3(0, player.GetComponent<XROrigin>().Camera.transform.position.y, (float)-5.11);
         }
         else if (level == 3)
         {
