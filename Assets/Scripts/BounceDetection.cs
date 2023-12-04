@@ -8,7 +8,7 @@ public class BounceDetection : MonoBehaviour
     public int bounces = 0;
     //public TextMeshPro bounceText;
     //public ResetScript resetScript;
-    public GameObject currentLevel;
+    public GameObject leftController;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -21,7 +21,7 @@ public class BounceDetection : MonoBehaviour
         {
             ResetBounces();
             //resetScript.ResetBall();
-            transform.position = currentLevel.GetComponent<CurrentLevel>().getResetCords();
+            leftController.GetComponent<LeftController>().resetBall();
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }

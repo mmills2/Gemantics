@@ -14,6 +14,8 @@ public class LeftController : MonoBehaviour
     public GameObject ball;
     public GameObject currentLevel;
 
+    private bool reset = true;
+
     private void OnEnable()
     {
         primaryButton.action.started += StartBall;
@@ -22,11 +24,24 @@ public class LeftController : MonoBehaviour
 
     private void StartBall(InputAction.CallbackContext context)
     {
-        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        if (reset) {
+            reset = false;
+            ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            if (currentLevel.GetComponent<CurrentLevel>().getNoGravity())
+            {
+                ball.GetComponent<Rigidbody>().AddForce(Vector3.down * 3f, ForceMode.VelocityChange);
+            }
+        }
     }
 
     private void ResetBall(InputAction.CallbackContext context)
     {
+        resetBall();
+    }
+
+    public void resetBall()
+    {
+        reset = true;
         ball.transform.position = currentLevel.GetComponent<CurrentLevel>().getResetCords();
         ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }

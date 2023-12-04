@@ -33,7 +33,7 @@ public class CurrentLevel : MonoBehaviour
         }
         else if (level == 3)
         {
-            return new Vector3(0, (float)1.351, (float)0.521);
+            return new Vector3(0, (float)1.351, (float)-9.354);
         }
         else
         {
@@ -53,11 +53,25 @@ public class CurrentLevel : MonoBehaviour
         }
         else if (level == 3)
         {
-            return new Vector3(2, player.GetComponent<XROrigin>().Camera.transform.position.y, (float)0.521);
+            return new Vector3(0, player.GetComponent<XROrigin>().Camera.transform.position.y, (float)-9.875);
         }
         else
         {
-            return new Vector3(0, 0, 0);
+            return new Vector3(0, player.GetComponent<XROrigin>().Camera.transform.position.y, (float)5.3);
+        }
+    }
+
+    public bool getNoGravity()
+    {
+        if(level == 3)
+        {
+            ball.GetComponent<Rigidbody>().useGravity = false;
+            return true;
+        }
+        else 
+        { 
+            ball.GetComponent<Rigidbody>().useGravity = true;
+            return false;
         }
     }
 }
