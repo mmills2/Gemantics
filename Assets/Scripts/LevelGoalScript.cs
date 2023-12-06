@@ -10,24 +10,19 @@ public class LevelGoalScript : MonoBehaviour
     public GameObject ball;
     public GameObject player;
     public GameObject nextLevel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject levelSelect;
+    public GameObject levelSelectMenu;
+    public int level;
 
     private void OnTriggerEnter(Collider other)
     {
-        //winText.text = "YOU WIN";
-        ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-        if(nextLevel != null) { nextLevel.SetActive(true); }
+        //if (other.tag == "Ball")
+        //{
+            //winText.text = "YOU WIN";
+            other.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            if (levelSelectMenu != null) { levelSelectMenu.SetActive(true); }
+            if (nextLevel != null) { nextLevel.SetActive(true); }
+            levelSelect.GetComponent<ActivateSelectLevel>().completeLevel(level);
+        //}
     }
 }

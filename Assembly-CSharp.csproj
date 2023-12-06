@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\BounceDetection.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\ResetScript.cs" />
     <Compile Include="Assets\Scripts\Old Scripts\StartScript.cs" />
+    <Compile Include="Assets\Scripts\ActivateSelectLevel.cs" />
     <Compile Include="Assets\Scripts\LevelGoalScript.cs" />
   </ItemGroup>
   <ItemGroup>
