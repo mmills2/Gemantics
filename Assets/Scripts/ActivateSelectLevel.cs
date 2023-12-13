@@ -25,7 +25,7 @@ public class ActivateSelectLevel : MonoBehaviour
     {
     }
 
-    public void completeLevel(int level)
+    public void unlockLevel(int level)
     {
         if (level == 1) { one = true; }
         else if (level == 2) { two = true; }

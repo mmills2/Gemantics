@@ -12,17 +12,20 @@ public class LevelGoalScript : MonoBehaviour
     public GameObject nextLevel;
     public GameObject levelSelect;
     public GameObject levelSelectMenu;
-    public int level;
+    public int unlockThisLevel;
+    public int unlockNextLevel;
+
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.tag == "Ball")
-        //{
+        if (other.tag == "Ball")
+        {
             //winText.text = "YOU WIN";
             other.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             if (levelSelectMenu != null) { levelSelectMenu.SetActive(true); }
             if (nextLevel != null) { nextLevel.SetActive(true); }
-            levelSelect.GetComponent<ActivateSelectLevel>().completeLevel(level);
-        //}
+            levelSelect.GetComponent<ActivateSelectLevel>().unlockLevel(unlockThisLevel);
+            if (unlockNextLevel != 0) { levelSelect.GetComponent<ActivateSelectLevel>().unlockLevel(unlockNextLevel); }
+        }
     }
 }

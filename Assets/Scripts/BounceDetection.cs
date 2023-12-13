@@ -9,6 +9,13 @@ public class BounceDetection : MonoBehaviour
     //public TextMeshPro bounceText;
     //public ResetScript resetScript;
     public GameObject leftController;
+    AudioSource collisionAudioSource;
+
+    private void Awake()
+    {
+        collisionAudioSource = GetComponent<AudioSource>();
+
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,6 +23,8 @@ public class BounceDetection : MonoBehaviour
         {
             bounces++;
             //bounceText.text = "Bounces: " + bounces.ToString("#");
+            collisionAudioSource.pitch = Random.Range(0.8f, 1.2f);
+            collisionAudioSource.Play();
         }
         else if (collision.gameObject.tag == "Obstacle")
         {
